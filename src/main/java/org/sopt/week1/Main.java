@@ -92,6 +92,11 @@ public class Main {
 
                             server.patch(inputId, inputBody);
                         }
+                        case "RESTORE" -> {
+                            server.restore();
+
+                            ConsoleIO.printLine("삭제된 일기를 복구했습니다.");
+                        }
                         case "FINISH" -> {
                             server.finish();
                         }
@@ -123,6 +128,7 @@ public class Main {
                     - POST : 일기 작성하기
                     - DELETE : 일기 제거하기
                     - PATCH : 일기 수정하기
+                    - RESTORE : 일기 복구하기
                     """;
 
         }
