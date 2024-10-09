@@ -35,11 +35,13 @@ public class DiaryRepository {
     }
 
     void deleteById(final Long id) {
+        isValidateId(id);
         trash.put(id, storage.get(id));
         storage.remove(id);
     }
 
     void updateById(final Long id, final String body) {
+        isValidateId(id);
         storage.replace(id, body);
     }
 
@@ -48,5 +50,11 @@ public class DiaryRepository {
             storage.put(id, trash.get(id));
         }
         trash.clear();
+    }
+
+    void isValidateId(final Long id) {
+        if (storage.get(id) == null) {
+            throw new IllegalArgumentException("존재하지 않는 일기 id입니다.");
+        }
     }
 }

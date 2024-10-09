@@ -46,6 +46,8 @@ public class Main {
                     run();
                 } catch (InvalidInputException e) {
                     ConsoleIO.printLine("잘못된 값을 입력하였습니다.");
+                } catch (IllegalArgumentException e) {
+                    ConsoleIO.printLine(e.getMessage());
                 }
 
                 if (isFinished()) {

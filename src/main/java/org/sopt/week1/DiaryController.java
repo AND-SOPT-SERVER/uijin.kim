@@ -25,7 +25,7 @@ public class DiaryController {
 
     final void post(final String body) {
         if (body.length() > 30) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("30자 이하로 적어주세요");
         }
         diaryService.writeDiary(body);
     }
