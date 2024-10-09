@@ -1,5 +1,6 @@
 package org.sopt.week1;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,19 @@ public class DiaryRepository {
     }
 
     List<Diary> findAll() {
+        try {
+            File file = new File("diary.txt");
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String diaryInfo = "";
+
+            while ((diaryInfo = bufferedReader.readLine()) != null) {
+                System.out.println(diaryInfo);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         // (1) diary를 담을 자료구조
         final List<Diary> diaryList = new ArrayList<>();
         // (2) 저장한 값을 불러오는 반복 구조
