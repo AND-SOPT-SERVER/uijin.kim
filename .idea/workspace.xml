@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84a72837-59a8-41a4-880d-4655e858dd1b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/diary.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trash.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week1/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week1/DiaryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week1/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week1/TextUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -72,6 +79,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.TextUtilsTest.이모지는_한_개의_문자로_인식한다.executor": "Run",
     "Gradle.assignment [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -86,11 +94,11 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "editor.preferences.import",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.sopt.week1.Main" />
       <module name="assignment.main" />
@@ -104,8 +112,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TextUtilsTest.이모지는_한_개의_문자로_인식한다" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;TextUtilsTest.이모지는_한_개의_문자로_인식한다&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TextUtilsTest.이모지는_한_개의_문자로_인식한다" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -131,6 +164,8 @@
       <workItem from="1728394538026" duration="8959000" />
       <workItem from="1728471866285" duration="410000" />
       <workItem from="1728475699985" duration="2394000" />
+      <workItem from="1728517555087" duration="1132000" />
+      <workItem from="1728519518119" duration="4978000" />
     </task>
     <servers />
   </component>
@@ -148,7 +183,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="seminar/#1" />
+                        <option value="seminar-deep/#1" />
                       </list>
                     </value>
                   </entry>
