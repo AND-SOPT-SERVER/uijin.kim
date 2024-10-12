@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week1/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week1/DiaryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week1/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week1/TextUtils.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,7 @@
                     <option name="lastUsedInstant" value="1728475998" />
                   </RecentBranch>
                   <RecentBranch>
+
                     <option name="branchName" value="seminar/#1" />
                     <option name="lastUsedInstant" value="1728112737" />
                   </RecentBranch>
@@ -99,6 +101,7 @@
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main">
+
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.sopt.week1.Main" />
       <module name="assignment.main" />
@@ -139,6 +142,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.TextUtilsTest.이모지는_한_개의_문자로_인식한다" />
+
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -166,6 +170,7 @@
       <workItem from="1728475699985" duration="2394000" />
       <workItem from="1728517555087" duration="1132000" />
       <workItem from="1728519518119" duration="4978000" />
+
     </task>
     <servers />
   </component>
@@ -184,6 +189,7 @@
                     <value>
                       <list>
                         <option value="seminar-deep/#1" />
+
                       </list>
                     </value>
                   </entry>

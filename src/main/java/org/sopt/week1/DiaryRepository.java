@@ -209,6 +209,7 @@ public class DiaryRepository {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
     }
 
 }

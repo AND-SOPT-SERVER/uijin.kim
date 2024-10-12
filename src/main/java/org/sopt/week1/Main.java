@@ -48,6 +48,7 @@ public class Main {
                     ConsoleIO.printLine("잘못된 값을 입력하였습니다.");
                 } catch (IllegalArgumentException e) {
                     ConsoleIO.printLine(e.getMessage());
+
                 }
 
                 if (isFinished()) {
@@ -99,6 +100,7 @@ public class Main {
 
                             ConsoleIO.printLine("삭제된 일기를 복구했습니다.");
                         }
+
                         case "FINISH" -> {
                             server.finish();
                         }
@@ -131,6 +133,7 @@ public class Main {
                     - DELETE : 일기 제거하기
                     - PATCH : 일기 수정하기
                     - RESTORE : 일기 복구하기
+
                     """;
 
         }

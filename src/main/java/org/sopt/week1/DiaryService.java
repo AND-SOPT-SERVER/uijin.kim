@@ -26,4 +26,5 @@ public class DiaryService {
     void restoreDiaryList() {
         diaryRepository.restoreAll();
     }
+
 }
