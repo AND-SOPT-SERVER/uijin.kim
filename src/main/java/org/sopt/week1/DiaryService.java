@@ -23,4 +23,8 @@ public class DiaryService {
         diaryRepository.updateById(id, body);
     }
 
+    void restoreDiaryList() {
+        diaryRepository.restoreAll();
+    }
+
 }

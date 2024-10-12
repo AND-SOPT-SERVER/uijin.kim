@@ -24,8 +24,9 @@ public class DiaryController {
     }
 
     final void post(final String body) {
-        if (body.length() > 30) {
-            throw new IllegalArgumentException();
+        if (TextUtils.getLengthOfBody(body) > 30) {
+            throw new IllegalArgumentException("30자 이하로 적어주세요");
+
         }
         diaryService.writeDiary(body);
     }
@@ -37,6 +38,11 @@ public class DiaryController {
     final void patch(final String id, final String body) {
         diaryService.updateDiary(Long.parseLong(id), body);
     }
+
+    final void restore() {
+        diaryService.restoreDiaryList();
+    }
+
 
     enum Status {
         READY,
