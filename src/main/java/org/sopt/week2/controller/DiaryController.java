@@ -1,6 +1,6 @@
 package org.sopt.week2.controller;
 
-import org.sopt.week2.dto.request.DiaryCreateRequest;
+import org.sopt.week2.dto.request.DiaryInformationRequest;
 import org.sopt.week2.dto.response.DiariesResponse;
 import org.sopt.week2.dto.response.DiaryDetailResponse;
 import org.sopt.week2.service.DiaryService;
@@ -21,10 +21,10 @@ public class DiaryController {
 
     @PostMapping
     public ResponseEntity<Void> createDiary(
-            @RequestBody final DiaryCreateRequest diaryCreateRequest
+            @RequestBody final DiaryInformationRequest diaryInformationRequest
     ) {
-        TextUtils.validateDiaryContent(diaryCreateRequest.content());
-        diaryService.createDiary(diaryCreateRequest.title(), diaryCreateRequest.content());
+        TextUtils.validateDiaryContent(diaryInformationRequest.content());
+        diaryService.createDiary(diaryInformationRequest.title(), diaryInformationRequest.content());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
@@ -43,10 +43,10 @@ public class DiaryController {
     @PatchMapping("/{diaryId}")
     public ResponseEntity<Void> updateDiary(
             @PathVariable(value = "diaryId") final long diaryId,
-            @RequestBody final DiaryCreateRequest diaryCreateRequest
+            @RequestBody final DiaryInformationRequest diaryInformationRequest
     ) {
-        TextUtils.validateDiaryContent(diaryCreateRequest.content());
-        diaryService.updateDiary(diaryId, diaryCreateRequest.title(), diaryCreateRequest.content());
+        TextUtils.validateDiaryContent(diaryInformationRequest.content());
+        diaryService.updateDiary(diaryId, diaryInformationRequest.title(), diaryInformationRequest.content());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 

@@ -1,6 +1,6 @@
 package org.sopt.week2.dto.request;
 
-public record DiaryCreateRequest(
+public record DiaryInformationRequest(
         String title,
         String content
 ) {
