@@ -3,6 +3,7 @@ package org.sopt.week2.controller;
 import org.sopt.week2.dto.request.DiaryInformationRequest;
 import org.sopt.week2.dto.response.DiariesResponse;
 import org.sopt.week2.dto.response.DiaryDetailResponse;
+import org.sopt.week2.enums.entity.DiaryCategory;
 import org.sopt.week2.service.DiaryService;
 import org.sopt.week2.util.TextUtils;
 import org.springframework.http.HttpStatus;
@@ -24,13 +25,15 @@ public class DiaryController {
             @RequestBody final DiaryInformationRequest diaryInformationRequest
     ) {
         TextUtils.validateDiaryContent(diaryInformationRequest.content());
-        diaryService.createDiary(diaryInformationRequest.title(), diaryInformationRequest.content());
+        diaryService.createDiary(diaryInformationRequest.title(), diaryInformationRequest.content(), diaryInformationRequest.diaryCategory());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
     @GetMapping
-    public ResponseEntity<DiariesResponse> getDiaries() {
-        return ResponseEntity.status(HttpStatus.OK).body(DiariesResponse.of(diaryService.getDiaries()));
+    public ResponseEntity<DiariesResponse> getDiaries(
+            @RequestParam(value = "diaryCategory") final DiaryCategory diaryCategory
+    ) {
+        return ResponseEntity.status(HttpStatus.OK).body(DiariesResponse.of(diaryService.getDiaries(diaryCategory)));
     }
 
     @GetMapping("/{diaryId}")

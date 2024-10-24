@@ -1,10 +1,11 @@
 package org.sopt.week2.service;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.sopt.week2.dto.response.DiaryDetailResponse;
 import org.sopt.week2.dto.response.DiaryResponse;
+import org.sopt.week2.enums.entity.DiaryCategory;
 import org.sopt.week2.enums.response.ErrorMessage;
 import org.sopt.week2.exception.BadRequestException;
+import org.sopt.week2.exception.NotFoundException;
 import org.sopt.week2.repository.DiaryEntity;
 import org.sopt.week2.repository.DiaryRepository;
 import org.springframework.stereotype.Component;
@@ -23,25 +24,26 @@ public class DiaryService {
     }
 
     @Transactional
-    public void createDiary(final String title, final String content) {
+    public void createDiary(final String title, final String content, final DiaryCategory diaryCategory) {
+
+        final List<DiaryEntity> diaryEntities = diaryRepository.findAll();
+        final List<DiaryDomain> diaryDomains = convertDiaryEntitiesToDiaryDomains(diaryEntities);
+
+        checkDuplicatedTitle(diaryDomains, title);
 
         final DiaryEntity findDiaryEntity = diaryRepository.findFirstByOrderByCreateAtDesc();
-
         if (checkLastCreateDiaryTime(findDiaryEntity)) {
-            diaryRepository.save(new DiaryEntity(title, content));
+            diaryRepository.save(new DiaryEntity(title, content, diaryCategory));
         } else {
             throw new BadRequestException(ErrorMessage.INPUT_IN_LIMIT_TIME);
         }
     }
 
     @Transactional(readOnly = true)
-    public List<DiaryResponse> getDiaries() {
+    public List<DiaryResponse> getDiaries(final DiaryCategory diaryCategory) {
 
-        final List<DiaryEntity> diaryEntities = diaryRepository.findTop10ByOrderByUpdateAtDesc();
-
-        final List<DiaryDomain> diaryDomains = diaryEntities.stream()
-                .map(diaryEntity -> new DiaryDomain(diaryEntity.getId(), diaryEntity.getTitle(), diaryEntity.getContent(), diaryEntity.getCreateAt(), diaryEntity.getUpdateAt()))
-                .toList();
+        final List<DiaryEntity> diaryEntities = fetchDiariesByCategory(diaryCategory);
+        final List<DiaryDomain> diaryDomains = convertDiaryEntitiesToDiaryDomains(diaryEntities);
 
         return diaryDomains.stream()
                 .map(diaryDomain -> DiaryResponse.of(diaryDomain.id(), diaryDomain.title()))
@@ -52,11 +54,10 @@ public class DiaryService {
     public DiaryDetailResponse getDiary(final long diaryId) {
 
         final DiaryEntity findDiaryEntity = diaryRepository.findById(diaryId).orElseThrow(
-                () -> new EntityNotFoundException("해당 일기를 찾을 수 없습니다.")
+                () -> new NotFoundException(ErrorMessage.NOT_FOUND_DIARY)
         );
 
         final DiaryDomain diaryDomain = DiaryDomain.of(findDiaryEntity.getId(), findDiaryEntity.getTitle(), findDiaryEntity.getContent(), findDiaryEntity.getCreateAt(), findDiaryEntity.getUpdateAt());
-
         return DiaryDetailResponse.of(diaryDomain.id(), diaryDomain.title(), diaryDomain.content(), diaryDomain.createAt());
     }
 
@@ -64,10 +65,8 @@ public class DiaryService {
     public void updateDiary(final long diaryId, final String title, final String content) {
 
         final DiaryEntity findDiaryEntity = diaryRepository.findById(diaryId).orElseThrow(
-                () -> new EntityNotFoundException("해당 일기를 찾을 수 없습니다.")
+                () -> new NotFoundException(ErrorMessage.NOT_FOUND_DIARY)
         );
-
-        final DiaryDomain diaryDomain = new DiaryDomain(findDiaryEntity.getId(), findDiaryEntity.getTitle(), findDiaryEntity.getContent(), findDiaryEntity.getCreateAt(), findDiaryEntity.getUpdateAt());
 
         findDiaryEntity.updateDiary(title, content);
     }
@@ -78,7 +77,28 @@ public class DiaryService {
         diaryRepository.deleteById(diaryId);
     }
 
+    private List<DiaryEntity> fetchDiariesByCategory(final DiaryCategory diaryCategory) {
+        if (diaryCategory.equals(DiaryCategory.ALL)) {
+            return diaryRepository.findTop10ByOrderByContentLengthAndUpdateAtDesc();
+        } else {
+            return diaryRepository.findTop10ByDiaryCategoryOrderByContentLengthAndUpdateAtDesc(diaryCategory);
+        }
+    }
+
+    private List<DiaryDomain> convertDiaryEntitiesToDiaryDomains(final List<DiaryEntity> diaryEntities) {
+        return diaryEntities.stream()
+                .map(diaryEntity -> new DiaryDomain(diaryEntity.getId(), diaryEntity.getTitle(), diaryEntity.getContent(), diaryEntity.getCreateAt(), diaryEntity.getUpdateAt()))
+                .toList();
+    }
+
+    private void checkDuplicatedTitle(final List<DiaryDomain> diaryDomains, final String title) {
+        for (DiaryDomain diaryDomain : diaryDomains) {
+            diaryDomain.checkDuplicatedTitle(title);
+        }
+    }
+
     private boolean checkLastCreateDiaryTime(final DiaryEntity diaryEntity) {
+        // 매직넘버 처리 어떻게 하지...
         // 현재 생성된 일기가 없거나, 생성한 지 5분이내이면 일기 생성 가능
         return diaryEntity == null || ChronoUnit.MINUTES.between(diaryEntity.getCreateAt(), LocalDateTime.now()) <= 5;
     }

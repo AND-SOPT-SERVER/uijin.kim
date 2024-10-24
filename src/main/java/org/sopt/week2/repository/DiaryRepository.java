@@ -1,6 +1,9 @@
 package org.sopt.week2.repository;
 
+import org.sopt.week2.enums.entity.DiaryCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,7 +12,11 @@ import java.util.List;
 @Component
 public interface DiaryRepository extends JpaRepository<DiaryEntity, Long> {
 
-    List<DiaryEntity> findTop10ByOrderByUpdateAtDesc();
+    @Query("SELECT d FROM DiaryEntity d ORDER BY LENGTH(d.content) DESC, d.updateAt DESC")
+    List<DiaryEntity> findTop10ByOrderByContentLengthAndUpdateAtDesc();
+
+    @Query("SELECT d FROM DiaryEntity d WHERE d.diaryCategory = :diaryCategory ORDER BY LENGTH(d.content) DESC, d.updateAt DESC")
+    List<DiaryEntity> findTop10ByDiaryCategoryOrderByContentLengthAndUpdateAtDesc(@Param("diaryCategory") DiaryCategory diaryCategory);
 
     DiaryEntity findFirstByOrderByCreateAtDesc();
 }

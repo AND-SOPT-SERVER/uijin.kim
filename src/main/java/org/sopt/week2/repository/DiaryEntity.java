@@ -1,6 +1,7 @@
 package org.sopt.week2.repository;
 
 import jakarta.persistence.*;
+import org.sopt.week2.enums.entity.DiaryCategory;
 
 import java.time.LocalDateTime;
 
@@ -23,15 +24,20 @@ public class DiaryEntity {
     @Column(nullable = false)
     private LocalDateTime updateAt;
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private DiaryCategory diaryCategory;
+
     public DiaryEntity() {
 
     }
 
-    public DiaryEntity(final String title, final String content) {
+    public DiaryEntity(final String title, final String content, final DiaryCategory diaryCategory) {
         this.title = title;
         this.content = content;
         this.createAt = LocalDateTime.now();
         this.updateAt = LocalDateTime.now();
+        this.diaryCategory = diaryCategory;
     }
 
     public long getId() {
