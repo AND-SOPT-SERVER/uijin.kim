@@ -1,5 +1,6 @@
 package org.sopt.week2.service;
 
+import org.sopt.week2.dto.response.DiariesResponse;
 import org.sopt.week2.dto.response.DiaryDetailResponse;
 import org.sopt.week2.dto.response.DiaryResponse;
 import org.sopt.week2.enums.entity.DiaryCategory;
@@ -40,14 +41,14 @@ public class DiaryService {
     }
 
     @Transactional(readOnly = true)
-    public List<DiaryResponse> getDiaries(final DiaryCategory diaryCategory) {
+    public DiariesResponse getDiaries(final DiaryCategory diaryCategory) {
 
         final List<DiaryEntity> diaryEntities = fetchDiariesByCategory(diaryCategory);
         final List<DiaryDomain> diaryDomains = convertDiaryEntitiesToDiaryDomains(diaryEntities);
 
-        return diaryDomains.stream()
+        return DiariesResponse.of(diaryDomains.stream()
                 .map(diaryDomain -> DiaryResponse.of(diaryDomain.id(), diaryDomain.title()))
-                .toList();
+                .toList());
     }
 
     @Transactional(readOnly = true)

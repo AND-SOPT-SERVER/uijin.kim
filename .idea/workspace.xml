@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84a72837-59a8-41a4-880d-4655e858dd1b" name="Changes" comment="">
+    <list default="true" id="84a72837-59a8-41a4-880d-4655e858dd1b" name="Changes" comment="[FEAT] : 2차 세미나 선택 과제 구현 - 카테고리 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/controller/DiaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/controller/DiaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/dto/request/DiaryInformationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/dto/request/DiaryInformationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/enums/response/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/enums/response/ErrorMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/repository/DiaryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/repository/DiaryEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/repository/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/repository/DiaryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/service/DiaryDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/service/DiaryDomain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week2/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week2/service/DiaryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -246,6 +240,8 @@
       <workItem from="1729529301726" duration="10277000" />
       <workItem from="1729584976952" duration="84000" />
       <workItem from="1729780121112" duration="1441000" />
+      <workItem from="1729782451319" duration="62000" />
+      <workItem from="1729866989323" duration="7192000" />
     </task>
     <servers />
   </component>
@@ -274,6 +270,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[FEAT] : 2차 세미나 선택 과제 구현 - 카테고리 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FEAT] : 2차 세미나 선택 과제 구현 - 카테고리 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

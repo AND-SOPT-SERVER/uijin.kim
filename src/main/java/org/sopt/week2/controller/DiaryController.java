@@ -33,7 +33,7 @@ public class DiaryController {
     public ResponseEntity<DiariesResponse> getDiaries(
             @RequestParam(value = "diaryCategory") final DiaryCategory diaryCategory
     ) {
-        return ResponseEntity.status(HttpStatus.OK).body(DiariesResponse.of(diaryService.getDiaries(diaryCategory)));
+        return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries(diaryCategory));
     }
 
     @GetMapping("/{diaryId}")
