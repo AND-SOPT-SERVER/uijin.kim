@@ -1,14 +1,14 @@
-package org.sopt.week2.service;
+package org.sopt.week3.service;
 
-import org.sopt.week2.dto.response.DiariesResponse;
-import org.sopt.week2.dto.response.DiaryDetailResponse;
-import org.sopt.week2.dto.response.DiaryResponse;
-import org.sopt.week2.enums.entity.DiaryCategory;
-import org.sopt.week2.enums.response.ErrorMessage;
-import org.sopt.week2.exception.BadRequestException;
-import org.sopt.week2.exception.NotFoundException;
-import org.sopt.week2.repository.DiaryEntity;
-import org.sopt.week2.repository.DiaryRepository;
+import org.sopt.week3.dto.response.DiariesResponse;
+import org.sopt.week3.dto.response.DiaryDetailResponse;
+import org.sopt.week3.dto.response.DiaryResponse;
+import org.sopt.week3.enums.entity.DiaryCategory;
+import org.sopt.week3.enums.response.ErrorMessage;
+import org.sopt.week3.exception.BadRequestException;
+import org.sopt.week3.exception.NotFoundException;
+import org.sopt.week3.repository.DiaryEntity;
+import org.sopt.week3.repository.DiaryRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

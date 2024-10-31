@@ -1,4 +1,4 @@
-package org.sopt.week2.enums.entity;
+package org.sopt.week3.enums.entity;
 
 public enum DiaryCategory {
 

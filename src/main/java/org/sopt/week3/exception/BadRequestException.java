@@ -1,6 +1,6 @@
-package org.sopt.week2.exception;
+package org.sopt.week3.exception;
 
-import org.sopt.week2.enums.response.ErrorMessage;
+import org.sopt.week3.enums.response.ErrorMessage;
 
 public class BadRequestException extends DiaryException {
 

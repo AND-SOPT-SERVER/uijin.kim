@@ -1,7 +1,7 @@
-package org.sopt.week2.repository;
+package org.sopt.week3.repository;
 
 import jakarta.persistence.*;
-import org.sopt.week2.enums.entity.DiaryCategory;
+import org.sopt.week3.enums.entity.DiaryCategory;
 
 import java.time.LocalDateTime;
 

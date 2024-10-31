@@ -1,6 +1,6 @@
-package org.sopt.week2.repository;
+package org.sopt.week3.repository;
 
-import org.sopt.week2.enums.entity.DiaryCategory;
+import org.sopt.week3.enums.entity.DiaryCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

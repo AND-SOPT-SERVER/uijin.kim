@@ -1,7 +1,7 @@
-package org.sopt.week2.util;
+package org.sopt.week3.util;
 
-import org.sopt.week2.enums.response.ErrorMessage;
-import org.sopt.week2.exception.BadRequestException;
+import org.sopt.week3.enums.response.ErrorMessage;
+import org.sopt.week3.exception.BadRequestException;
 
 public class TextUtils {
 

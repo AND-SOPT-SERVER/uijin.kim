@@ -1,4 +1,4 @@
-package org.sopt.week2.enums.response;
+package org.sopt.week3.enums.response;
 
 import org.springframework.http.HttpStatus;
 

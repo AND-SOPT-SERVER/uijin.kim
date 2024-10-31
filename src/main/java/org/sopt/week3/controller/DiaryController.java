@@ -1,11 +1,11 @@
-package org.sopt.week2.controller;
+package org.sopt.week3.controller;
 
-import org.sopt.week2.dto.request.DiaryInformationRequest;
-import org.sopt.week2.dto.response.DiariesResponse;
-import org.sopt.week2.dto.response.DiaryDetailResponse;
-import org.sopt.week2.enums.entity.DiaryCategory;
-import org.sopt.week2.service.DiaryService;
-import org.sopt.week2.util.TextUtils;
+import org.sopt.week3.dto.request.DiaryInformationRequest;
+import org.sopt.week3.dto.response.DiariesResponse;
+import org.sopt.week3.dto.response.DiaryDetailResponse;
+import org.sopt.week3.enums.entity.DiaryCategory;
+import org.sopt.week3.service.DiaryService;
+import org.sopt.week3.util.TextUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

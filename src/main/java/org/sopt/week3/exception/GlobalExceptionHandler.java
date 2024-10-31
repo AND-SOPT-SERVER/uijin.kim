@@ -1,4 +1,4 @@
-package org.sopt.week2.exception;
+package org.sopt.week3.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

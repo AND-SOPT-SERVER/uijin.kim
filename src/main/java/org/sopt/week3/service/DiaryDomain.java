@@ -1,7 +1,7 @@
-package org.sopt.week2.service;
+package org.sopt.week3.service;
 
-import org.sopt.week2.enums.response.ErrorMessage;
-import org.sopt.week2.exception.BadRequestException;
+import org.sopt.week3.enums.response.ErrorMessage;
+import org.sopt.week3.exception.BadRequestException;
 
 import java.time.LocalDateTime;
 

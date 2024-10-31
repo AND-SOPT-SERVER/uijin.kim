@@ -1,4 +1,4 @@
-package org.sopt.week2.dto.response;
+package org.sopt.week3.dto.response;
 
 import java.time.LocalDateTime;
 

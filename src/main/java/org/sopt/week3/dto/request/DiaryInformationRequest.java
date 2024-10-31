@@ -1,6 +1,6 @@
-package org.sopt.week2.dto.request;
+package org.sopt.week3.dto.request;
 
-import org.sopt.week2.enums.entity.DiaryCategory;
+import org.sopt.week3.enums.entity.DiaryCategory;
 
 public record DiaryInformationRequest(
         String title,
