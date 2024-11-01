@@ -3,12 +3,12 @@ package org.sopt.week3.service;
 import org.sopt.week3.dto.response.DiariesResponse;
 import org.sopt.week3.dto.response.DiaryDetailResponse;
 import org.sopt.week3.dto.response.DiaryResponse;
-import org.sopt.week3.enums.entity.DiaryCategory;
+import org.sopt.week3.enums.entity.Category;
 import org.sopt.week3.enums.response.ErrorMessage;
 import org.sopt.week3.exception.BadRequestException;
 import org.sopt.week3.exception.NotFoundException;
-import org.sopt.week3.repository.DiaryEntity;
-import org.sopt.week3.repository.DiaryRepository;
+import org.sopt.week3.repository.diary.DiaryEntity;
+import org.sopt.week3.repository.diary.DiaryRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +25,7 @@ public class DiaryService {
     }
 
     @Transactional
-    public void createDiary(final String title, final String content, final DiaryCategory diaryCategory) {
+    public void createDiary(final String title, final String content, final Category category) {
 
         final List<DiaryEntity> diaryEntities = diaryRepository.findAll();
         final List<DiaryDomain> diaryDomains = convertDiaryEntitiesToDiaryDomains(diaryEntities);
@@ -34,16 +34,16 @@ public class DiaryService {
 
         final DiaryEntity findDiaryEntity = diaryRepository.findFirstByOrderByCreateAtDesc();
         if (checkLastCreateDiaryTime(findDiaryEntity)) {
-            diaryRepository.save(new DiaryEntity(title, content, diaryCategory));
+            diaryRepository.save(new DiaryEntity(title, content, category));
         } else {
             throw new BadRequestException(ErrorMessage.INPUT_IN_LIMIT_TIME);
         }
     }
 
     @Transactional(readOnly = true)
-    public DiariesResponse getDiaries(final DiaryCategory diaryCategory) {
+    public DiariesResponse getDiaries(final Category category) {
 
-        final List<DiaryEntity> diaryEntities = fetchDiariesByCategory(diaryCategory);
+        final List<DiaryEntity> diaryEntities = fetchDiariesByCategory(category);
         final List<DiaryDomain> diaryDomains = convertDiaryEntitiesToDiaryDomains(diaryEntities);
 
         return DiariesResponse.of(diaryDomains.stream()
@@ -78,11 +78,11 @@ public class DiaryService {
         diaryRepository.deleteById(diaryId);
     }
 
-    private List<DiaryEntity> fetchDiariesByCategory(final DiaryCategory diaryCategory) {
-        if (diaryCategory.equals(DiaryCategory.ALL)) {
+    private List<DiaryEntity> fetchDiariesByCategory(final Category category) {
+        if (category.equals(Category.ALL)) {
             return diaryRepository.findTop10ByOrderByContentLengthAndUpdateAtDesc();
         } else {
-            return diaryRepository.findTop10ByDiaryCategoryOrderByContentLengthAndUpdateAtDesc(diaryCategory);
+            return diaryRepository.findTop10ByDiaryCategoryOrderByContentLengthAndUpdateAtDesc(category);
         }
     }
 

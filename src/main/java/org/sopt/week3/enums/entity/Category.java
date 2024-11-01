@@ -1,6 +1,6 @@
 package org.sopt.week3.enums.entity;
 
-public enum DiaryCategory {
+public enum Category {
 
     ALL("전체"),
     FOOD("음식"),
@@ -9,7 +9,7 @@ public enum DiaryCategory {
 
     private final String diaryCategory;
 
-    DiaryCategory(final String diaryCategory) {
+    Category(final String diaryCategory) {
         this.diaryCategory = diaryCategory;
     }
 
