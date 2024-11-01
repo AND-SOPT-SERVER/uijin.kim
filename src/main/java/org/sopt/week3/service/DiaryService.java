@@ -9,6 +9,8 @@ import org.sopt.week3.exception.BadRequestException;
 import org.sopt.week3.exception.NotFoundException;
 import org.sopt.week3.repository.diary.DiaryEntity;
 import org.sopt.week3.repository.diary.DiaryRepository;
+import org.sopt.week3.repository.user.UserEntity;
+import org.sopt.week3.repository.user.UserRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,22 +21,27 @@ import java.util.List;
 @Component
 public class DiaryService {
     private final DiaryRepository diaryRepository;
+    private final UserRepository userRepository;
 
-    public DiaryService(final DiaryRepository diaryRepository) {
+    public DiaryService(final UserRepository userRepository, final DiaryRepository diaryRepository) {
+        this.userRepository = userRepository;
         this.diaryRepository = diaryRepository;
     }
 
     @Transactional
-    public void createDiary(final String title, final String content, final Category category) {
+    public void createDiary(final long userId, final String title, final String content, final Category category, final boolean isVisible) {
 
         final List<DiaryEntity> diaryEntities = diaryRepository.findAll();
         final List<DiaryDomain> diaryDomains = convertDiaryEntitiesToDiaryDomains(diaryEntities);
 
+        final UserEntity findUserEntity = userRepository.findById(userId);
+
         checkDuplicatedTitle(diaryDomains, title);
 
-        final DiaryEntity findDiaryEntity = diaryRepository.findFirstByOrderByCreateAtDesc();
+        final DiaryEntity findDiaryEntity = diaryRepository.findFirstByOrderByDateDesc();
+
         if (checkLastCreateDiaryTime(findDiaryEntity)) {
-            diaryRepository.save(new DiaryEntity(title, content, category));
+            diaryRepository.save(new DiaryEntity(findUserEntity, title, content, category, isVisible));
         } else {
             throw new BadRequestException(ErrorMessage.INPUT_IN_LIMIT_TIME);
         }

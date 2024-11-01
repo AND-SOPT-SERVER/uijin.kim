@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84a72837-59a8-41a4-880d-4655e858dd1b" name="Changes" comment="[FEAT] : 2차 세미나 선택 과제 구현 - 카테고리 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/diary/DiaryEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/DiaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/DiaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/DiaryInformationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/DiaryInformationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/enums/entity/DiaryCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/enums/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/DiaryEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/diary/DiaryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/diary/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/diary/DiaryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/user/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/DiaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/util/TextUtils.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

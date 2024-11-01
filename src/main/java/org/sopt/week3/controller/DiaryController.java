@@ -1,11 +1,11 @@
 package org.sopt.week3.controller;
 
+import jakarta.validation.Valid;
 import org.sopt.week3.dto.request.DiaryInformationRequest;
 import org.sopt.week3.dto.response.DiariesResponse;
 import org.sopt.week3.dto.response.DiaryDetailResponse;
 import org.sopt.week3.enums.entity.Category;
 import org.sopt.week3.service.DiaryService;
-import org.sopt.week3.util.TextUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +22,10 @@ public class DiaryController {
 
     @PostMapping
     public ResponseEntity<Void> createDiary(
-            @RequestBody final DiaryInformationRequest diaryInformationRequest
+            @RequestHeader(name = "userId") final long userId,
+            @RequestBody @Valid final DiaryInformationRequest diaryInformationRequest
     ) {
-        TextUtils.validateDiaryContent(diaryInformationRequest.content());
-        diaryService.createDiary(diaryInformationRequest.title(), diaryInformationRequest.content(), diaryInformationRequest.category());
+        diaryService.createDiary(userId, diaryInformationRequest.title(), diaryInformationRequest.content(), diaryInformationRequest.category(), diaryInformationRequest.isVisible());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
@@ -48,7 +48,6 @@ public class DiaryController {
             @PathVariable(value = "diaryId") final long diaryId,
             @RequestBody final DiaryInformationRequest diaryInformationRequest
     ) {
-        TextUtils.validateDiaryContent(diaryInformationRequest.content());
         diaryService.updateDiary(diaryId, diaryInformationRequest.title(), diaryInformationRequest.content());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
