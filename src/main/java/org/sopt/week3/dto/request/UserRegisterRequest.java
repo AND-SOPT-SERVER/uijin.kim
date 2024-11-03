@@ -2,7 +2,7 @@ package org.sopt.week3.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record SignUpRequest(
+public record UserRegisterRequest(
         @NotBlank
         String username,
         @NotBlank

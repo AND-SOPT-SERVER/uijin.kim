@@ -6,16 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="84a72837-59a8-41a4-880d-4655e858dd1b" name="Changes" comment="[FEAT] : 2차 세미나 선택 과제 구현 - 카테고리 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/DiaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/diary/DiaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/DiaryDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/DiaryDetailResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/DiaryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/DiaryResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/enums/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/enums/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/enums/response/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/enums/response/ErrorMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/diary/DiaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/diary/DiaryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/repository/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/DiaryDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/diary/DiaryDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/diary/DiaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/SignInRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/UserRegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/SignInResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/user/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +254,7 @@
       <workItem from="1730471426387" duration="7160000" />
       <workItem from="1730525103625" duration="27000" />
       <workItem from="1730535574784" duration="5000" />
-      <workItem from="1730620419048" duration="983000" />
+      <workItem from="1730620419048" duration="3755000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 package org.sopt.week3.service.user;
 
 import lombok.RequiredArgsConstructor;
-import org.sopt.week3.dto.response.SignInResponse;
+import org.sopt.week3.dto.response.LoginResponse;
 import org.sopt.week3.repository.user.UserEntity;
 import org.sopt.week3.repository.user.UserRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void signUp(final String username, final String password, final String nickname) {
+    public void register(final String username, final String password, final String nickname) {
         final List<UserDomain> userDomains = userRepository.findAll().stream()
                 .map(this::convertToDomain)
                 .toList();
@@ -32,10 +32,10 @@ public class UserService {
     }
 
     @Transactional
-    public SignInResponse signIn(final String username, final String password) {
+    public LoginResponse login(final String username, final String password) {
         final UserDomain userDomain = convertToDomain(userRepository.findByUsernameAndPassword(username, password));
 
-        return SignInResponse.of(userDomain.id(), userDomain.nickname());
+        return LoginResponse.of(userDomain.id(), userDomain.nickname());
     }
 
     private UserDomain convertToDomain(final UserEntity user) {
