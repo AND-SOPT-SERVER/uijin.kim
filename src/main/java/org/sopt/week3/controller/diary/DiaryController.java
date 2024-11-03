@@ -1,11 +1,12 @@
-package org.sopt.week3.controller;
+package org.sopt.week3.controller.diary;
 
 import jakarta.validation.Valid;
 import org.sopt.week3.dto.request.DiaryInformationRequest;
 import org.sopt.week3.dto.response.DiariesResponse;
 import org.sopt.week3.dto.response.DiaryDetailResponse;
 import org.sopt.week3.enums.entity.Category;
-import org.sopt.week3.service.DiaryService;
+import org.sopt.week3.enums.entity.Criteria;
+import org.sopt.week3.service.diary.DiaryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,13 +32,18 @@ public class DiaryController {
 
     @GetMapping
     public ResponseEntity<DiariesResponse> getDiaries(
-            @RequestParam(value = "category") final Category category
+            @RequestHeader(name = "userId") final long userId,
+            @RequestParam(name = "category") final Category category,
+            @RequestParam(name = "criteria") final Criteria criteria,
+            @RequestParam(name = "page") final int page,
+            @RequestParam(name = "size") final int size
     ) {
-        return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries(category));
+        return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries(userId, category, criteria, page, size));
     }
 
     @GetMapping("/{diaryId}")
     public ResponseEntity<DiaryDetailResponse> getDiary(
+            @RequestHeader(name = "userId") final long userId,
             @PathVariable(value = "diaryId") final long diaryId
     ) {
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiary(diaryId));
@@ -45,6 +51,7 @@ public class DiaryController {
 
     @PatchMapping("/{diaryId}")
     public ResponseEntity<Void> updateDiary(
+            @RequestHeader(name = "userId") final long userId,
             @PathVariable(value = "diaryId") final long diaryId,
             @RequestBody final DiaryInformationRequest diaryInformationRequest
     ) {
@@ -54,6 +61,7 @@ public class DiaryController {
 
     @DeleteMapping("/{diaryId}")
     public ResponseEntity<Void> deleteDiary(
+            @RequestHeader(name = "userId") final long userId,
             @PathVariable(value = "diaryId") final long diaryId
     ) {
         diaryService.deleteDiary(diaryId);
