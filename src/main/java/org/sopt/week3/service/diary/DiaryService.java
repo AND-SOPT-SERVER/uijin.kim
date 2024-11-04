@@ -59,6 +59,22 @@ public class DiaryService {
                 .toList();
 
         return DiariesResponse.of(diaryDomains.stream()
+                .filter(DiaryDomain::isVisible)
+                .map(diaryDomain -> DiaryResponse.of(diaryDomain.id(), diaryDomain.userEntity().getId(), diaryDomain.title(), diaryDomain.userEntity().getNickname(), diaryDomain.date()))
+                .toList());
+    }
+
+    @Transactional(readOnly = true)
+    public DiariesResponse getMyDiaries(final long userId, final Category category, final Criteria criteria, final int page, final int size) {
+
+        final Pageable pageable = PageRequest.of(page, size);
+
+        final List<DiaryDomain> diaryDomains = fetchDiaries(category, criteria, pageable).stream()
+                .map(this::convertToDomain)
+                .toList();
+
+        return DiariesResponse.of(diaryDomains.stream()
+                .filter(diaryDomain -> diaryDomain.userEntity().getId() == userId)
                 .map(diaryDomain -> DiaryResponse.of(diaryDomain.id(), diaryDomain.userEntity().getId(), diaryDomain.title(), diaryDomain.userEntity().getNickname(), diaryDomain.date()))
                 .toList());
     }

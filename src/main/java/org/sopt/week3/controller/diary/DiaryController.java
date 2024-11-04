@@ -40,6 +40,17 @@ public class DiaryController {
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries(category, criteria, page, size));
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<DiariesResponse> getMyDiaries(
+            @RequestHeader(name = "userId") final long userId,
+            @RequestParam(name = "category") final Category category,
+            @RequestParam(name = "criteria") final Criteria criteria,
+            @RequestParam(name = "page") final int page,
+            @RequestParam(name = "size") final int size
+    ) {
+        return ResponseEntity.status(HttpStatus.OK).body(diaryService.getMyDiaries(userId, category, criteria, page, size));
+    }
+
     @GetMapping("/{diaryId}")
     public ResponseEntity<DiaryDetailResponse> getDiary(
             @RequestHeader(name = "userId") final long userId,
