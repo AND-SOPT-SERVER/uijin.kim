@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84a72837-59a8-41a4-880d-4655e858dd1b" name="Changes" comment="[FEAT] : 2차 세미나 선택 과제 구현 - 카테고리 추가">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/controller/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/SignInRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/request/UserRegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/SignInResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/dto/response/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/week3/service/user/UserService.java" afterDir="false" />
-    </list>
+    <list default="true" id="84a72837-59a8-41a4-880d-4655e858dd1b" name="Changes" comment="[FEAT] : 2차 세미나 선택 과제 구현 - 카테고리 추가" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
