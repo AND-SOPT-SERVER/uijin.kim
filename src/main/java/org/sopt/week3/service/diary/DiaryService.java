@@ -50,7 +50,7 @@ public class DiaryService {
     }
 
     @Transactional(readOnly = true)
-    public DiariesResponse getDiaries(final long userId, final Category category, final Criteria criteria, final int page, final int size) {
+    public DiariesResponse getDiaries(final Category category, final Criteria criteria, final int page, final int size) {
 
         final Pageable pageable = PageRequest.of(page, size);
 
@@ -59,7 +59,7 @@ public class DiaryService {
                 .toList();
 
         return DiariesResponse.of(diaryDomains.stream()
-                .map(diaryDomain -> DiaryResponse.of(diaryDomain.id(), diaryDomain.title(), diaryDomain.userEntity().getNickname(), diaryDomain.date()))
+                .map(diaryDomain -> DiaryResponse.of(diaryDomain.id(), diaryDomain.userEntity().getId(), diaryDomain.title(), diaryDomain.userEntity().getNickname(), diaryDomain.date()))
                 .toList());
     }
 

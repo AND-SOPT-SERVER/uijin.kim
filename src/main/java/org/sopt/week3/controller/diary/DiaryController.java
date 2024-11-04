@@ -32,13 +32,12 @@ public class DiaryController {
 
     @GetMapping
     public ResponseEntity<DiariesResponse> getDiaries(
-            @RequestHeader(name = "userId") final long userId,
             @RequestParam(name = "category") final Category category,
             @RequestParam(name = "criteria") final Criteria criteria,
             @RequestParam(name = "page") final int page,
             @RequestParam(name = "size") final int size
     ) {
-        return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries(userId, category, criteria, page, size));
+        return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries(category, criteria, page, size));
     }
 
     @GetMapping("/{diaryId}")
