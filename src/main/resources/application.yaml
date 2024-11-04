@@ -1,9 +1,11 @@
 spring:
+  config:
+    import: application-secret.properties
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-2vfrih-kr.vpc-pub-cdb.ntruss.com:3306/team5
-    username: sopt-35-team5
-    password: 1q2w3e4r12!@
+    url: ${DATA_SOURCE_URL}
+    username: ${DATA_SOURCE_USER_NAME}
+    password: ${DATA_SOURCE_PASSWORD}
   jpa:
     show-sql: true
     hibernate:
