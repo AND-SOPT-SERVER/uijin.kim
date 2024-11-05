@@ -1,15 +1,16 @@
 spring:
+  config:
+    import: application-secret.properties
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/testdb
-    username: sa
-    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATA_SOURCE_URL}
+    username: ${DATA_SOURCE_USER_NAME}
+    password: ${DATA_SOURCE_PASSWORD}
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
-      dialect: org.hibernate.dialect.H2Dialect
+      ddl-auto: none
+      dialect: org.hibernate.dialect.MySQL8Dialect
     properties:
-      hibernate:
-        format_sql: true
-        show_sql: true
+      format_sql: true
+      show_sql: true
