@@ -1,6 +1,7 @@
 package org.sopt.week3.repository.diary;
 
 import org.sopt.week3.enums.entity.Category;
+import org.sopt.week3.repository.user.UserEntity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -30,5 +31,9 @@ public interface DiaryRepository extends JpaRepository<DiaryEntity, Long> {
             """)
     List<DiaryEntity> findAllByCategory(@Param("category") final Category category, final Pageable pageable, @Param("criteria") final String criteria);
 
-    DiaryEntity findFirstByOrderByDateDesc();
+    DiaryEntity findFirstByUserEntityOrderByDateDesc(final UserEntity userEntity);
+
+    DiaryEntity findByUserEntityAndId(UserEntity userEntity, Long id);
+
+    void deleteByUserEntityAndId(UserEntity userEntity, Long id);
 }

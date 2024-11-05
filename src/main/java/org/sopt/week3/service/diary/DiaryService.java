@@ -32,9 +32,24 @@ public class DiaryService {
 
     @Transactional
     public void createDiary(final long userId, final String title, final String content, final Category category, final boolean isVisible) {
-        final DiaryDomain findDiaryDomain = convertToDomain(diaryRepository.findFirstByOrderByDateDesc());
 
-        if (checkLastCreateDiaryTime(findDiaryDomain)) {
+        final DiaryEntity diaryEntity = diaryRepository.findFirstByUserEntityOrderByDateDesc(userRepository.findById(userId));
+        if (diaryEntity != null) {
+            final DiaryDomain findDiaryDomain = convertToDomain(diaryEntity);
+            if (checkLastCreateDiaryTime(findDiaryDomain)) {
+                diaryRepository.save(
+                        DiaryEntity.builder()
+                                .userEntity(userRepository.findById(userId))
+                                .title(title)
+                                .content(content)
+                                .category(category)
+                                .isVisible(isVisible)
+                                .build()
+                );
+            } else {
+                throw new BadRequestException(ErrorMessage.INPUT_IN_LIMIT_TIME);
+            }
+        } else {
             diaryRepository.save(
                     DiaryEntity.builder()
                             .userEntity(userRepository.findById(userId))
@@ -44,9 +59,9 @@ public class DiaryService {
                             .isVisible(isVisible)
                             .build()
             );
-        } else {
-            throw new BadRequestException(ErrorMessage.INPUT_IN_LIMIT_TIME);
         }
+
+
     }
 
     @Transactional(readOnly = true)
@@ -89,16 +104,14 @@ public class DiaryService {
     }
 
     @Transactional
-    public void updateDiary(final long diaryId, final String title, final String content) {
-        final DiaryEntity findDiaryEntity = diaryRepository.findById(diaryId).orElseThrow(
-                () -> new NotFoundException(ErrorMessage.NOT_FOUND_DIARY)
-        );
+    public void updateDiary(final long userId, final long diaryId, final String title, final String content) {
+        final DiaryEntity findDiaryEntity = diaryRepository.findByUserEntityAndId(userRepository.findById(userId), diaryId);
         findDiaryEntity.updateDiary(title, content);
     }
 
     @Transactional
-    public void deleteDiary(final long diaryId) {
-        diaryRepository.deleteById(diaryId);
+    public void deleteDiary(final long userId, final long diaryId) {
+        diaryRepository.deleteByUserEntityAndId(userRepository.findById(userId), diaryId);
     }
 
     private List<DiaryEntity> fetchDiaries(final Category category, final Criteria criteria, final Pageable pageable) {

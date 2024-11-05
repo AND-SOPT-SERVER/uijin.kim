@@ -11,9 +11,9 @@ public record DiaryInformationRequest(
         @Size(min = 1, max = 30)
         @NotBlank
         String content,
-        @NotBlank
+
         Category category,
-        @NotBlank
+
         boolean isVisible
 ) {
 }

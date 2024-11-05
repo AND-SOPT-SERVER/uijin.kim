@@ -15,6 +15,6 @@ import java.time.LocalDateTime;
 public abstract class BaseTimeEntity {
 
     @CreatedDate
-    @Column(name = "date", columnDefinition = "datetime", nullable = false)
-    private LocalDateTime date;
+    @Column(name = "date", columnDefinition = "datetime")
+    private LocalDateTime date = LocalDateTime.now();
 }

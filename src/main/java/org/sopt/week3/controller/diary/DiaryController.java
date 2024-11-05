@@ -53,7 +53,6 @@ public class DiaryController {
 
     @GetMapping("/{diaryId}")
     public ResponseEntity<DiaryDetailResponse> getDiary(
-            @RequestHeader(name = "userId") final long userId,
             @PathVariable(value = "diaryId") final long diaryId
     ) {
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiary(diaryId));
@@ -65,7 +64,7 @@ public class DiaryController {
             @PathVariable(value = "diaryId") final long diaryId,
             @RequestBody final DiaryInformationRequest diaryInformationRequest
     ) {
-        diaryService.updateDiary(diaryId, diaryInformationRequest.title(), diaryInformationRequest.content());
+        diaryService.updateDiary(userId, diaryId, diaryInformationRequest.title(), diaryInformationRequest.content());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 
@@ -74,7 +73,7 @@ public class DiaryController {
             @RequestHeader(name = "userId") final long userId,
             @PathVariable(value = "diaryId") final long diaryId
     ) {
-        diaryService.deleteDiary(diaryId);
+        diaryService.deleteDiary(userId, diaryId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 }
